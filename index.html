@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sharik Taliana | Especialista en cejas y pestañas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --arena: #e6d8c9;
+            --arena-oscuro: #d4c2af;
+            --beige: #f7f2ec;
+            --blanco: #ffffff;
+            --texto: #2b2b2b;
+            --gris: #6b6b6b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: var(--beige);
+            color: var(--texto);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(180deg, var(--arena), var(--arena-oscuro));
+            padding: 90px 20px 80px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--texto);
+            color: white;
+            text-decoration: none;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        section {
+            padding: 70px 20px;
+            max-width: 1050px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 45px;
+            font-weight: 600;
+            font-size: 1.6rem;
+        }
+
+        .sobre-mi {
+            background: var(--blanco);
+            padding: 36px;
+            border-radius: 18px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            color: var(--gris);
+        }
+
+        .grid-servicios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .servicio-card {
+            position: relative;
+            height: 260px;
+            border-radius: 18px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        .servicio-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .card-info {
+            background: var(--blanco);
+            padding: 34px;
+            border-radius: 18px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            color: var(--gris);
+        }
+
+        .lista {
+            margin-top: 16px;
+            text-align: left;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .lista li {
+            margin-bottom: 8px;
+        }
+
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            z-index: 1000;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--blanco);
+            width: 100%;
+            max-width: 900px;
+            max-height: 90vh;
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            position: relative;
+            text-align: center;
+        }
+
+        .close {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .carousel {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .carousel img {
+            width: 100%;
+            max-height: 75vh;
+            height: auto;
+            object-fit: contain;
+            border-radius: 14px;
+            background: #f7f2ec;
+        }
+
+        .nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        footer {
+            background: var(--arena-oscuro);
+            text-align: center;
+            padding: 50px 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Sharik Taliana Garcia Montes</h1>
+        <p>Especialista en cejas y pestañas</p>
+        <a class="btn"
+            href="https://wa.me/573107396139?text=Hola%20Sharik,%20quiero%20agendar%20una%20cita%20para%20un%20servicio"
+            target="_blank">Agendar cita</a>
+    </header>
+
+    <section>
+        <h2>Sobre mí</h2>
+        <div class="sobre-mi">
+            Especialista certificada en cejas y pestañas con enfoque en resultados naturales, técnicas actualizadas y
+            protocolos de higiene profesional.
+        </div>
+    </section>
+
+    <section>
+        <h2>Cejas</h2>
+        <div class="grid-servicios">
+            <div class="servicio-card" onclick="openModal('laminado')">
+                <img src="portadalaminado.jpeg">
+                <div class="overlay">Laminado y sombreado de cejas</div>
+            </div>
+            <div class="servicio-card" onclick="openModal('pigmentacion')">
+                <img src="portadapigmentacion.jpeg">
+                <div class="overlay">Sombreado en henna y aerografo</div>
+            </div>
+            <div class="servicio-card" onclick="openModal('depilacion')">
+                <img src="portadadepilacion.jpeg">
+                <div class="overlay">Depilación</div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Pestañas</h2>
+        <div class="grid-servicios">
+            <div class="servicio-card" onclick="openModal('pestanas','clasicas')">
+                <img src="pestañasclasicas1.jpeg">
+                <div class="overlay"></div>
+            </div>
+            <div class="servicio-card" onclick="openModal('pestanas','3d')">
+                <img src="pestañas3d1.jpeg">
+                <div class="overlay"></div>
+            </div>
+            <div class="servicio-card" onclick="openModal('pestanas','wispy')">
+                <img src="pestañaswispy1.jpeg">
+                <div class="overlay"></div>
+            </div>
+            <div class="servicio-card" onclick="openModal('pestanas','lifting')">
+                <img src="portadalifting.jpeg">
+                <div class="overlay"></div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Hidralips</h2>
+        <div class="grid-servicios">
+            <div class="servicio-card" onclick="openModal('hidralips')">
+                <img src="portadahidralips.jpeg">
+                <div class="overlay">Hidralips</div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Certificación</h2>
+        <div class="card-info">
+            Certificada por Eleganza Academia en cejas y pestañas con énfasis en aerógrafo e hidralips.
+        </div>
+    </section>
+
+    <section>
+        <h2>Enfoque profesional</h2>
+        <div class="card-info">
+            <ul class="lista">
+                <li>Atención personalizada</li>
+                <li>Técnicas modernas y seguras</li>
+                <li>Protocolos estrictos de higiene</li>
+                <li>Resultados naturales</li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">×</span>
+            <h3 id="modalTitle"></h3>
+            <div class="carousel">
+                <button class="nav prev" onclick="prevSlide()">‹</button>
+                <img id="carouselImage">
+                <button class="nav next" onclick="nextSlide()">›</button>
+            </div>
+            <a class="btn" id="modalBtn" target="_blank">Agendar por WhatsApp</a>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>Contacto</strong></p>
+        <p>310 739 6139</p>
+        <p>Pereira, Colombia</p>
+    </footer>
+
+    <script>
+        const galerias = {
+            laminado: { titulo: 'Laminado de cejas', imagenes: ['laminado ysombreado1.jpeg', 'laminadoysombreado2.jpeg', 'laminadoysombreado3.jpeg', 'laminadoysombreado4.jpeg'] },
+            pigmentacion: { titulo: 'Sombreado en henna y aerografo', imagenes: ['pigmentacion.jpeg', 'pigmentacion1.jpeg','pigmentacion2.jpeg'] },
+            depilacion: { titulo: 'Depilación de cejas', imagenes: ['depilacion1.jpeg'] },
+            pestanas: {
+                titulo: '',
+                efectos: {
+                    clasicas: ['pestañasclasicas1.jpeg', 'pestañasclasicas2.jpeg', 'pestañasclasicas3.jpeg'],
+                    '3d': ['pestañas3d1.jpeg', 'pestañas3d2.jpeg'],
+                    wispy: ['pestañaswispy1.jpeg', 'pestañaswispy2.jpeg'],
+                    lifting: ['pestañaslifting1.jpeg']
+                }
+            },
+            hidralips: { titulo: 'Hidralips', imagenes: ['labios.jpeg'] }
+        };
+
+        let currentGallery = [];
+        let currentIndex = 0;
+
+        function openModal(tipo, efecto = null) {
+            const data = galerias[tipo];
+            if (efecto && data.efectos) currentGallery = data.efectos[efecto];
+            else currentGallery = data.imagenes || [];
+            currentIndex = 0;
+            document.getElementById('modalTitle').textContent = data.titulo;
+            document.getElementById('carouselImage').src = currentGallery[0];
+            const mensaje = `Hola Sharik, quiero agendar ${data.titulo}`;
+            document.getElementById('modalBtn').href = `https://wa.me/573107396139?text=${encodeURIComponent(mensaje)}`;
+            document.getElementById('modal').classList.add('active');
+        }
+
+        function closeModal() { document.getElementById('modal').classList.remove('active'); }
+
+        function nextSlide() {
+            if (currentGallery.length < 2) return;
+            currentIndex = (currentIndex + 1) % currentGallery.length;
+            document.getElementById('carouselImage').src = currentGallery[currentIndex];
+        }
+
+        function prevSlide() {
+            if (currentGallery.length < 2) return;
+            currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+            document.getElementById('carouselImage').src = currentGallery[currentIndex];
+        }
+
+        window.onclick = function (e) { if (e.target === document.getElementById('modal')) closeModal(); }
+    </script>
+
+</body>
+
+</html>
